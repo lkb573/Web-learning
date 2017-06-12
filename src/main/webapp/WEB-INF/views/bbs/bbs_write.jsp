@@ -32,10 +32,10 @@
 
         <div class="jumbotron">
             <form action="/bbs/write" method="post">
-                <p>글 번호  <input type="text" name="Id"></p>
+                <p>글 번호  <input type="text" name="aid"></p>
                 <p>글 제목  <input type="text" name="title"></p>
                 <p>글 작성자  <input type="text" name="author"></p>
-                <p>글 내용  <textarea name="content"></textarea> </p>
+                <p>글 내용  <input type="text" name="content"></p>
 
                 <p><input type="submit" value="글을 쓴다" class="btn btn-lg btn-success"></input></p>
             </form>

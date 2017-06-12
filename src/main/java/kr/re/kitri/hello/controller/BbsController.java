@@ -1,5 +1,6 @@
 package kr.re.kitri.hello.controller;
 
+import kr.re.kitri.hello.model.Article;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,23 +40,20 @@ public class BbsController {
     }
 
     @RequestMapping(value = "/bbs/write", method = RequestMethod.POST)
-    public ModelAndView bbswritedo(@RequestParam("Id") String aId,
+    public ModelAndView bbswritedo(Article articled){
+            /*@RequestParam("Id") String aid,
                              @RequestParam("title") String title,
                              @RequestParam("author") String author,
-                             @RequestParam("content") String content){
+                             @RequestParam("content") String content)*/
 
-        System.out.println(aId);
-        System.out.println(title);
-        System.out.println(author);
-        System.out.println(content);
+
 
         ModelAndView mav = new ModelAndView();
         mav.setViewName("bbs/bbs_write_do");
+        mav.addObject("article", articled);
 
-        mav.addObject("Id", aId);
-        mav.addObject("title", title);
-        mav.addObject("author", author);
-        mav.addObject("content", content);
+        System.out.println(articled);
+
 
         return mav;
     }

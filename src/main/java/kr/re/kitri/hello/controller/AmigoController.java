@@ -1,5 +1,6 @@
 package kr.re.kitri.hello.controller;
 
+import kr.re.kitri.hello.model.Amigo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,21 +31,24 @@ public class AmigoController {
 
 
     @RequestMapping(value = "/amigo/regist", method=RequestMethod.POST)
-    public ModelAndView amigoregist(@RequestParam("name") String name,
+    public ModelAndView amigoregist(Amigo amigone){
+            /*@RequestParam("name") String name,
                                     @RequestParam("phoneNum") String phoneNum,
-                                    @RequestParam("eMail") String eMail){
+                                    @RequestParam("eMail") String eMail)*/
 
-        System.out.println(name);
+        /*System.out.println(name);
         System.out.println(phoneNum);
-        System.out.println(eMail);
+        System.out.println(eMail);*/
 
         ModelAndView mAv = new ModelAndView();
 
         mAv.setViewName("amigo/amigo_regist_go");
+        mAv.addObject("amigo", amigone);
 
-        mAv.addObject("name", name);
+        System.out.println(amigone);
+        /*mAv.addObject("name", name);
         mAv.addObject("phoneNum", phoneNum);
-        mAv.addObject("eMail", eMail);
+        mAv.addObject("eMail", eMail);*/
 
         return mAv;
     }

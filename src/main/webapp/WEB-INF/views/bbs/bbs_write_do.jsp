@@ -16,13 +16,13 @@
 </head>
 <body>
 
-    <h1>do write page</h1>
+    <h1>결과 값을 보여준다</h1>
 
     <ul>
-        <li>${Id}</li>
-        <li>${title}</li>
-        <li>${author}</li>
-        <li>${content}</li>
+        <li>${article.aid}</li>
+        <li>${article.title}</li>
+        <li>${article.author}</li>
+        <li>${article.content}</li>
     </ul>
 
 </body>

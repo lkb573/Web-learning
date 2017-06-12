@@ -19,9 +19,9 @@
     <h1>check</h1>
 
     <ul>
-        <li>${name}</li>
-        <li>${phoneNum}</li>
-        <li>${eMail}</li>
+        <li>${amigo.name}</li>
+        <li>${amigo.phoneNum}</li>
+        <li>${amigo.eMail}</li>
     </ul>
 
 </body>
