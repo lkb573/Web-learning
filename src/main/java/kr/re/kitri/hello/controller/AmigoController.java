@@ -40,15 +40,16 @@ public class AmigoController {
         System.out.println(phoneNum);
         System.out.println(eMail);*/
 
+        /*mAv.addObject("name", name);
+        mAv.addObject("phoneNum", phoneNum);
+        mAv.addObject("eMail", eMail);*/
+
         ModelAndView mAv = new ModelAndView();
 
         mAv.setViewName("amigo/amigo_regist_go");
         mAv.addObject("amigo", amigone);
 
         System.out.println(amigone);
-        /*mAv.addObject("name", name);
-        mAv.addObject("phoneNum", phoneNum);
-        mAv.addObject("eMail", eMail);*/
 
         return mAv;
     }

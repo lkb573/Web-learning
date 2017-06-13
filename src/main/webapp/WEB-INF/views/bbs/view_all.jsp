@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: danawacomputer
-  Date: 2017-06-12
-  Time: 오전 10:39
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>bbs</title>
@@ -17,6 +13,17 @@
 <body>
 
     <h1>view all pages.</h1>
+
+    <c:forEach var="article" items="${list}">
+        <ul>
+            <li>번호 - ${article.aid}</li>
+            <li>제목 - <a href="/bbs/${article.aid}">${article.title}</a></li>
+            <li>ID - ${article.author}</li>
+            <li>내용 - ${article.content}</li>
+        </ul>
+    </c:forEach>
+
+    <a href="/bbs/write">글 작성~~~</a>
 
 </body>
 </html>

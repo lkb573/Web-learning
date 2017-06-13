@@ -1,5 +1,6 @@
 package kr.re.kitri.hello.controller;
 
+import kr.re.kitri.hello.common.MockArticle;
 import kr.re.kitri.hello.model.Article;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,17 +9,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class BbsController {
 
     @RequestMapping("/bbs")
-    public String viewAll(){
-        return "bbs/view_all";
+    public ModelAndView viewAll(){
+        //view all data load
+        MockArticle mock = new MockArticle();
+        List<Article> list = mock.getArticles();
+
+        return new ModelAndView("bbs/view_all")
+                .addObject("list",list);
     }
 
     @RequestMapping("/bbs/{Id}")
-    public ModelAndView viewDetail(@PathVariable("Id") String Id){
-
+    public ModelAndView viewDetail(@PathVariable/*("Id")*/ String Id){
 
         ModelAndView mav = new ModelAndView();
         mav.setViewName("bbs/view_detail");
@@ -26,12 +33,6 @@ public class BbsController {
         mav.addObject("Id", Id);
 
         return mav;
-    }
-
-
-    @RequestMapping("/bbs/15")
-    public String view15(){
-        return "view15";
     }
 
     @RequestMapping(value = "/bbs/write", method = RequestMethod.GET)
@@ -46,11 +47,9 @@ public class BbsController {
                              @RequestParam("author") String author,
                              @RequestParam("content") String content)*/
 
-
-
         ModelAndView mav = new ModelAndView();
         mav.setViewName("bbs/bbs_write_do");
-        mav.addObject("article", articled);
+        mav.addObject("article", articled);     /*article 객체를 이용하여 Jsp에서 사용가능*/
 
         System.out.println(articled);
 
@@ -62,7 +61,10 @@ public class BbsController {
 
 
 
-
+    /*@RequestMapping("/bbs/15")
+    public String view15(){
+        return "view15";
+    }*/
 
     /*@RequestMapping("/bbs/write/do")
     public String bbswritedo(HttpServletRequest request){

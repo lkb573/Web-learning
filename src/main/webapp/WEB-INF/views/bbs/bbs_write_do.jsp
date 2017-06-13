@@ -25,5 +25,7 @@
         <li>${article.content}</li>
     </ul>
 
+    <a href="/bbs">전체보기~!</a>
+
 </body>
 </html>
