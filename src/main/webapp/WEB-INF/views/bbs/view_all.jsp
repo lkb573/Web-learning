@@ -6,9 +6,14 @@
 <head>
     <title>bbs</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
+          crossorigin="anonymous">--%>
+
+    <link rel="stylesheet" href="/asset/css/bootstrap.css">
+    <%--<link rel="stylesheet" href="/asset/css/main.css"/>--%>
+
+
 </head>
 <body>
 
@@ -24,6 +29,9 @@
     </c:forEach>
 
     <a href="/bbs/write">글 작성~~~</a>
+
+    <script src="/asset/js/jquery-3.2.1.js"></script>
+    <script src="/asset/js/bootstrap.js"></script>
 
 </body>
 </html>

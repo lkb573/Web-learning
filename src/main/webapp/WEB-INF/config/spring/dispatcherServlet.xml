@@ -8,6 +8,8 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <mvc:annotation-driven/>
+    <mvc:resources mapping="/asset/**" location="/client/"/>
+
 
     <!--retrun에 대한 설정-->
     <bean id="viewResolver"
@@ -21,4 +23,7 @@
     <bean id="bbsController" class="kr.re.kitri.hello.controller.BbsController"/>
 
     <bean id="amigoController" class="kr.re.kitri.hello.controller.AmigoController"/>
+
+    <bean id="bslolController" class="kr.re.kitri.hello.controller.BslolController"/>
+
 </beans>
