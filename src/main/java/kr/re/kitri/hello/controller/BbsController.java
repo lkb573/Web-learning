@@ -2,6 +2,8 @@ package kr.re.kitri.hello.controller;
 
 import kr.re.kitri.hello.common.MockArticle;
 import kr.re.kitri.hello.model.Article;
+import kr.re.kitri.hello.service.BbsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,10 @@ import java.util.List;
 
 @Controller
 public class BbsController {
+
+    @Autowired
+    private BbsService service;
+
 
     @RequestMapping("/bbs")
     public ModelAndView viewAll(){
@@ -46,6 +52,10 @@ public class BbsController {
                              @RequestParam("title") String title,
                              @RequestParam("author") String author,
                              @RequestParam("content") String content)*/
+
+        /*BbsService service = new BbsService();*/
+        service.registArticle(articled);
+
 
         ModelAndView mav = new ModelAndView();
         mav.setViewName("bbs/bbs_write_do");
