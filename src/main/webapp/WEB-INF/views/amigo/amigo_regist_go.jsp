@@ -24,5 +24,7 @@
         <li>${amigo.eMail}</li>
     </ul>
 
+    <a href="/amigo">등록완료!</a>
+
 </body>
 </html>

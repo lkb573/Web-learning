@@ -1,14 +1,13 @@
 package kr.re.kitri.hello.model;
 
-/**
- * Created by danawacomputer on 2017-06-12.
- */
+
 public class Article {
 
     private String aid;
     private String title;
     private String author;
     private String content;
+    //Spring --> Object / DB --> record
 
     @Override
     public String toString() {
