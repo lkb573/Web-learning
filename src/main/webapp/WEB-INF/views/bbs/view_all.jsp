@@ -22,9 +22,12 @@
     <c:forEach var="article" items="${list}">
         <ul>
             <li>번호 - ${article.aid}</li>
-            <li>제목 - <a href="/bbs/${article.aid}">${article.title}</a></li>
-            <li>ID - ${article.author}</li>
-            <li>내용 - ${article.content}</li>
+            <li>제목 -
+                <a href="/bbs/${article.aid}">${article.title}</a>
+                (${article.author})
+            </li>
+            <%--<li>ID - ${article.author}</li>
+            <li>내용 - ${article.content}</li>--%>
         </ul>
     </c:forEach>
 

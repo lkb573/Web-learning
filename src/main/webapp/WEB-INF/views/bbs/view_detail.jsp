@@ -12,7 +12,17 @@
 </head>
 <body>
 
-    <h1>${Id} 번 글을 확인!</h1>
+    <h1>${article.aid} 번 글을 확인!</h1>
+
+    <ul>
+        <li>${article.aid}</li>
+        <li>${article.title}</li>
+        <li>${article.author}</li>
+        <li>${article.content}</li>
+    </ul>
+
+    <a href="/bbs">초기화면</a>
+    <a href="/bbs/write">글쓰기</a>
 
 </body>
 </html>

@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 /*
@@ -26,36 +29,38 @@ public class BbsController {
     @Autowired
     private BbsService service;
 
-
     @RequestMapping("")
     public ModelAndView viewAll(){
         //view all data load
-        MockArticle mock = new MockArticle();
-        List<Article> list = mock.getArticles();
+        /*MockArticle mock = new MockArticle();
+        List<Article> list = mock.getArticles();*/
+
+        List<Article> list = service.getArticles();
 
         return new ModelAndView("bbs/view_all")
                 .addObject("list",list);
     }
 
-    @RequestMapping("/{Id}")
-    public ModelAndView viewDetail(@PathVariable/*("Id")*/ String Id){
+    //글 상세보기
+    @RequestMapping("/{aid}")
+    public ModelAndView viewDetail(@PathVariable String aid){
 
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("bbs/view_detail");
+        Article article = service.viewArticledeatail(aid);
 
-        mav.addObject("Id", Id);
-
-        return mav;
+        return new ModelAndView("bbs/view_detail")
+                .addObject("article", article);
     }
 
+    //글 작성하기
     @GetMapping("/write")
     public String bbswrite(){
         return "bbs/bbs_write";
     }
 
+    //실제 글 작성 부분
     @PostMapping(/*value = */ "/write" /*, method = RequestMethod.POST*/)
     public ModelAndView bbswritedo(Article article){
-            /*@RequestParam("Id") String aid,
+            /*@RequestParam("aid") String aid,
                              @RequestParam("title") String title,
                              @RequestParam("author") String author,
                              @RequestParam("content") String content)*/
@@ -63,16 +68,18 @@ public class BbsController {
         /*BbsService service = new BbsService();*/
         service.registArticle(article);
 
-
         ModelAndView mav = new ModelAndView();
         mav.setViewName("bbs/bbs_write_do");
         mav.addObject("article", article);     /*article 객체를 이용하여 Jsp에서 사용가능*/
 
         System.out.println(article);
 
-
         return mav;
     }
+
+
+
+
 
 
 
@@ -81,11 +88,10 @@ public class BbsController {
     /*@RequestMapping("/15")
     public String view15(){
         return "view15";
-    }*/
-
-    /*@RequestMapping("/write/do")
+    }
+    @RequestMapping("/write/do")
     public String bbswritedo(HttpServletRequest request){
-        String artcleId = request.getParameter("Id");
+        String artcleId = request.getParameter("aid");
         String title = request.getParameter("title");
         String author = request.getParameter("author");
         String content = request.getParameter("content");

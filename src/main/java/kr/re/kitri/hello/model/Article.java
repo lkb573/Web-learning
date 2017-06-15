@@ -9,6 +9,9 @@ public class Article {
     private String content;
     //Spring --> Object / DB --> record
 
+    public Article() {
+    }
+
     @Override
     public String toString() {
         return "Article{" +

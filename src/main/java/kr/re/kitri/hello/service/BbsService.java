@@ -18,23 +18,17 @@ public class BbsService {
 
     //글쓰기   DB=insert action
     public void registArticle(Article article){
-
-
         dao.insertArticle(article);
 
     }
 
-    //전체글보기
-    public List<Article> viewArticles(){
-
-
-        return null;
-    }
-
     //글 상세보기  인자-글번호  리턴-글
     public Article viewArticledeatail(String aid){
+        return dao.selectArticleById(aid);
+    }
 
-
-        return null;
+    //전체 글보기
+    public List<Article> getArticles(){
+        return dao.selectAllArticles();
     }
 }

@@ -1,12 +1,14 @@
 package kr.re.kitri.hello.dao;
 
 
-import kr.re.kitri.hello.model.Amigo;
 import kr.re.kitri.hello.model.Article;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.List;
 
 
 public class ArticleDaoTest {
@@ -38,20 +40,23 @@ public class ArticleDaoTest {
     }
 
     @Test
-    public void testInsertAimgo(){
+    public void testSelectAllArticles(){
+        ArticleDao dao = context.getBean("articleDao", ArticleDao.class);
+        List<Article> list = dao.selectAllArticles();
 
-        AmigoDao dao = context.getBean("amigoDao", AmigoDao.class);
-
-        Amigo amigo = new Amigo();
-
-        amigo.setName("테스트 네임");
-        amigo.setPhoneNum("12345678");
-        amigo.seteMail("check@mail.com");
-
-
-
-        dao.insertAimgo(amigo);
+        Assert.assertTrue(list.size()>0);
+        Assert.assertTrue(list.get(0).getAuthor().equals("author"));
 
     }
+
+    @Test
+    public void testSelectArticleById(){
+        ArticleDao dao = context.getBean("articleDao", ArticleDao.class);
+        Article article = dao.selectArticleById("2");
+        Assert.assertTrue(article.getAuthor().equals("작가"));
+
+
+    }
+
 
 }
