@@ -33,11 +33,22 @@ public class AmigoController {
 
     @RequestMapping("")
     public ModelAndView amigo(){
-        MockAmigo mockA = new MockAmigo();
-        List<Amigo> list = mockA.getAmigos();
+        /*MockAmigo mockA = new MockAmigo();
+        List<Amigo> list = mockA.getAmigos();*/
+
+        List<Amigo> list = service.getAimgos();
 
         return new ModelAndView("amigo/amigo_all")
                 .addObject("list",list);
+    }
+
+    @RequestMapping("/{name}")
+    public ModelAndView amigoDetail(@PathVariable String name){
+
+        Amigo amigo = service.viewAmigoDetail(name);
+
+        return new ModelAndView("amigo/amigo_detail")
+                .addObject("amigo", amigo);
     }
 
     @GetMapping("/regist")
@@ -53,19 +64,5 @@ public class AmigoController {
         return new ModelAndView("amigo/amigo_regist_go")
                 .addObject("amigo",amigo);
     }
-
-    @RequestMapping("/{name}")
-    public ModelAndView amigoDetail(@PathVariable("name") String name){
-
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("amigo/amigo_detail");
-
-        mav.addObject("name", name);
-
-        return mav;
-    }
-
-
-
 
 }

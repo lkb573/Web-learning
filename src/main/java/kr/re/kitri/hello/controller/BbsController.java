@@ -84,7 +84,6 @@ public class BbsController {
 
 
 
-
     /*@RequestMapping("/15")
     public String view15(){
         return "view15";
