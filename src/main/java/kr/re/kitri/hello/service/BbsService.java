@@ -2,6 +2,7 @@ package kr.re.kitri.hello.service;
 
 
 import kr.re.kitri.hello.dao.ArticleDao;
+import kr.re.kitri.hello.dao.ArticleDaoJdbc;
 import kr.re.kitri.hello.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,6 @@ public class BbsService {
     //글쓰기   DB=insert action
     public void registArticle(Article article){
         dao.insertArticle(article);
-
     }
 
     //글 상세보기  인자-글번호  리턴-글

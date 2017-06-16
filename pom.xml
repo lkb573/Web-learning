@@ -49,6 +49,13 @@
       <scope>test</scope>
     </dependency>
 
+    <!--JDBC-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>4.3.9.RELEASE</version>
+    </dependency>
+
 
 
     <!--DB dependency-->

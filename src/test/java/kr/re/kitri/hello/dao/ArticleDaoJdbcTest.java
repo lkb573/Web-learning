@@ -7,11 +7,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 
-public class ArticleDaoTest {
+
+public class ArticleDaoJdbcTest {
 
     private ApplicationContext context;
 
@@ -26,7 +28,7 @@ public class ArticleDaoTest {
     @Test
     public void testInsertArticle(){
 
-        ArticleDao dao = context.getBean("articleDao", ArticleDao.class);
+        ArticleDaoJdbc dao = context.getBean("articleDaoJdbc", ArticleDaoJdbc.class);
 
         Article article = new Article();
 
@@ -41,7 +43,7 @@ public class ArticleDaoTest {
 
     @Test
     public void testSelectAllArticles(){
-        ArticleDao dao = context.getBean("articleDao", ArticleDao.class);
+        ArticleDaoJdbc dao = context.getBean("articleDaoJdbc", ArticleDaoJdbc.class);
         List<Article> list = dao.selectAllArticles();
 
         Assert.assertTrue(list.size()>0);
@@ -51,7 +53,7 @@ public class ArticleDaoTest {
 
     @Test
     public void testSelectArticleById(){
-        ArticleDao dao = context.getBean("articleDao", ArticleDao.class);
+        ArticleDaoJdbc dao = context.getBean("articleDaoJdbc", ArticleDaoJdbc.class);
         Article article = dao.selectArticleById("2");
         Assert.assertTrue(article.getAuthor().equals("작가"));
 
