@@ -4,8 +4,11 @@ package kr.re.kitri.hello.dao;
 import kr.re.kitri.hello.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -32,11 +35,56 @@ public class ArticleDaoSpringJdbc implements ArticleDao {
 
     @Override
     public Article selectArticleById(String aid) {
-        return null;
+
+        String query = "SELECT aid, title, author, content\n" +
+                "from article\n" +
+                "WHERE aid = ?";
+
+
+        return jdbcTemplate.queryForObject(query,
+                (rs, i) -> {
+                    Article article = new Article();
+
+                    article.setAid(rs.getString(1));
+                    article.setTitle(rs.getString(2));
+                    article.setAuthor(rs.getString(3));
+                    article.setContent(rs.getString(4));
+                    return article;
+                    }, Integer.parseInt(aid));
+
+        /*
+        return jdbcTemplate.queryForObject(query, new RowMapper<Article>() {
+            @Override
+            public Article mapRow(ResultSet rs, int i) throws SQLException {
+                Article article = new Article();
+
+                article.setAid(rs.getString(1));
+                article.setTitle(rs.getString(2));
+                article.setAuthor(rs.getString(3));
+                article.setContent(rs.getString(4));
+
+                return article;
+            }
+        }, aid);*/
     }
 
     @Override
     public List<Article> selectAllArticles() {
-        return null;
+
+        String query = "SELECT aid, title, author, content from article";
+
+        return jdbcTemplate.query(query,
+                (rs, i) -> {
+                    Article article = new Article();
+
+                    article.setAid(rs.getString(1));
+                    article.setTitle(rs.getString(2));
+                    article.setAuthor(rs.getString(3));
+                    article.setContent(rs.getString(4));
+
+                    return article;
+                });
+
+
     }
 }
