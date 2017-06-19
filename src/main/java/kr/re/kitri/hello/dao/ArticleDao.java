@@ -11,6 +11,5 @@ public interface ArticleDao {
     Article selectArticleById(String aid);
     List<Article> selectAllArticles();
     void deleteArticle(String aid);
-
     void updateArticle(String aid, Article article);
 }

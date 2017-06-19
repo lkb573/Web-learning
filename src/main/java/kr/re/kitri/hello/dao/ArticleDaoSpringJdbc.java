@@ -93,7 +93,6 @@ public class ArticleDaoSpringJdbc implements ArticleDao {
         String query = "DELETE FROM article\n" +
                 "WHERE aid = ?";
 
-
         jdbcTemplate.update(query, Integer.parseInt(aid));
     }
 
