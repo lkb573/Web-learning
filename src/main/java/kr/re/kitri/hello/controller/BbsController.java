@@ -100,7 +100,14 @@ public class BbsController {
         return mav;
     }
 
+    //Json 사용
+    @PostMapping("/write/api")
+    public String bbswriteApi(@RequestBody Article article){
 
+        service.registArticle(article);
+
+        return "bbs/view_all";
+    }
 
 
 

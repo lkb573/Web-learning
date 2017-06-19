@@ -30,4 +30,13 @@ public class BbsService {
     public List<Article> getArticles(){
         return dao.selectAllArticles();
     }
+
+
+    public void removeArticle(String aid) {
+        dao.deleteArticle(aid);
+    }
+
+    public void modifyArticle(String aid, Article article) {
+        dao.updateArticle(aid, article);
+    }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 
 
 //@Repository         //등록하는 개념
-public class ArticleDaoJdbc implements ArticleDao{
+public class ArticleDaoJdbc /*implements ArticleDao*/{
 
     @Autowired
     private DataSource dataSource;

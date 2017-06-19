@@ -84,7 +84,31 @@ public class ArticleDaoSpringJdbc implements ArticleDao {
 
                     return article;
                 });
+    }
 
+
+    @Override
+    public void deleteArticle(String aid){
+
+        String query = "DELETE FROM article\n" +
+                "WHERE aid = ?";
+
+
+        jdbcTemplate.update(query, Integer.parseInt(aid));
+    }
+
+    @Override
+    public void updateArticle(String aid, Article article){
+
+        String query = "UPDATE article SET content = ?\n" +
+                "WHERE aid = ?";
+
+        jdbcTemplate.update(query,
+                article.getContent(),
+                Integer.parseInt(aid));
 
     }
+
+
+
 }
