@@ -41,6 +41,18 @@ public class BbsController {
                 .addObject("list",list);
     }
 
+    //Json 사용
+    @RequestMapping("/api")
+    @ResponseBody
+    public List<Article> viewAllApi(){
+
+        List<Article> list = service.getArticles();
+
+        return list;
+
+    }
+
+
     //글 상세보기
     @RequestMapping("/{aid}")
     public ModelAndView viewDetail(@PathVariable String aid){
@@ -49,6 +61,17 @@ public class BbsController {
 
         return new ModelAndView("bbs/view_detail")
                 .addObject("article", article);
+    }
+
+    //JSON 사용
+    @RequestMapping("/{aid}/api")
+    @ResponseBody
+    public Article viewDetailApi(@PathVariable String aid){
+
+        Article article = service.viewArticledeatail(aid);
+
+        return article;
+
     }
 
     //글 작성하기
