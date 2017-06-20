@@ -10,7 +10,7 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">--%>
 
-    <link rel="stylesheet" href="/asset/css/bootstrap.css">
+    <link rel="stylesheet" href="/client/css/bootstrap.css">
     <%--<link rel="stylesheet" href="/asset/css/main.css"/>--%>
 
 
@@ -33,8 +33,8 @@
 
     <a href="/bbs/write">글 작성~~~</a>
 
-    <script src="/asset/js/jquery-3.2.1.js"></script>
-    <script src="/asset/js/bootstrap.js"></script>
+    <script src="/client/js/jquery-3.2.1.js"></script>
+    <script src="/client/js/bootstrap.js"></script>
 
 </body>
 </html>
